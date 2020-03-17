@@ -31,7 +31,7 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |name|string|null: false, add_index: true|
 ### Association
-- has_many :messages
+- has_many :groups_users
 - has_many :groups, throught: groups_users
 - has_many :messages
 

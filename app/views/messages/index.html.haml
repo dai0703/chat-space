@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+  %body
+    .flash-box
+    .wrapper
+      = render "side_ber"
+      .chat-main
+        .main-header
+          .main-header__left-box
+            %h2{ class:'main-header__left-box__current-group'} 
+              グループ名
+            %ul.main-header__left-box__member-list 
+              Member：
+              %li.main-header__left-box__member-list__member nisiura
+          = link_to "#" do
+            .main-header__edit-btn Edit
+
+        .messages
+          %div{ class:'message',}
+            .message__upper-info
+              %p.message__upper-info__talker おはよう
+              %p.message__upper-info__date 2020/03/25(Wed) 14:16:46
+            %p.message__text こんにちわ
+          %div{ class:'message',}
+            .message__upper-info
+              %p.message__upper-info__talker おはよう
+              %p.message__upper-info__date 2020/03/25(Wed) 14:17:18
+            %p.message__text こんにちわ       
+
+        .form
+          %form.new_message
+            .input-box
+              %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+              %label{class: "input-box__image"}
+                = icon('fas', 'image')
+                %input{type: "file", class: "input-box__image__file"}
+            %input{type: "submit",value: 'sent', class: "submit-btn"}

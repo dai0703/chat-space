@@ -9,30 +9,23 @@
         .main-header
           .main-header__left-box
             %h2{ class:'main-header__left-box__current-group'} 
-              グループ名
-            %ul.main-header__left-box__member-list 
+              =@group.name
+            %ul{class: "main-header__left-box__member-list"} 
               Member：
-              %li.main-header__left-box__member-list__member nisiura
-          = link_to "#" do
-            .main-header__edit-btn Edit
+              - @group.users.each do |user|
+                %li{class: "main-header__left-box__member-list__member"}
+                  =user.name
+          = link_to edit_group_path(@group.id), class: "main-header__edit-btn" do
+            Edit
 
         .messages
-          %div{ class:'message',}
-            .message__upper-info
-              %p.message__upper-info__talker おはよう
-              %p.message__upper-info__date 2020/03/25(Wed) 14:16:46
-            %p.message__text こんにちわ
-          %div{ class:'message',}
-            .message__upper-info
-              %p.message__upper-info__talker おはよう
-              %p.message__upper-info__date 2020/03/25(Wed) 14:17:18
-            %p.message__text こんにちわ       
+          =  render partial: 'message', collection: @messages      
 
         .form
-          %form.new_message
-            .input-box
-              %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-              %label{class: "input-box__image"}
-                = icon('fas', 'image')
-                %input{type: "file", class: "input-box__image__file"}
-            %input{type: "submit",value: 'sent', class: "submit-btn"}
+          = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+            .form__mask
+              = f.label :image, class: 'form__mask__image' do
+                = icon('fas', 'image', class: 'icon')
+                = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', class: 'form__submit'

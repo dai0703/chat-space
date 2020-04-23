@@ -90,17 +90,15 @@ a{
         color: #999999;
       }
     }
-    a{
-    color: $light-blue;
-      .main-header__edit-btn{
-        height: 40px;
-        line-height: 40px;
-        padding: 0 20px;
-        margin-top: 30px;
-        border: solid 1px $light-blue;
-        position: absolute;
-        right: 40px;
-      }
+    .main-header__edit-btn{
+      color: $light-blue;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $light-blue;
+      position: absolute;
+      right: 40px;
     }
   }
   .messages{
@@ -133,43 +131,44 @@ a{
   }
   .form {
     height: 90px;
-    padding: 20px 40px;
+    padding: 20px 50px 20px 40px;
     background-color: #ddd;
-     
-    form {
-      display: flex;
-      .input-box{
-        width: 100%;
-        position: relative;
-        display: flex;
-        &__text{
-          height: 50px;
-          width: 100%;
-          padding: 0 40px 0 10px;
-          color: $chat-main-text-color;
-          border-style: none;
-        }
-        &__image{
+    box-sizing: border-box;
+    position: relative;
+    &__message{
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
+    }
+    &__mask {
+      color: $chat-main-text-color;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
+        .icon{
           position: absolute;
-          top: 10px;
-          right: 10px;
-          font-size: 1.3rem;
-          cursor: pointer;
-          &__file{
-            display: none;
-          }
+          right: 220px;
+          bottom: 35px;
         }
       }
-      .submit-btn{
-        width: 100px;
-        height: 50px;
-        padding: 0 30px;
-        margin-left: 15px;
-        background-color: $light-blue;
-        color: $chat-side-text-color;
-        cursor: pointer;
+      .hidden {
+        display: none;
       }
-    }  
+    } 
+    &__submit {
+      height: 50px;
+      padding: 0 30px;
+      margin-left: 15px;
+      font-size: 16px;
+      border: none;
+      background-color: $light-blue;
+      color: $chat-side-text-color;
+      float: right;
+    } 
   }
 }
 

@@ -51,21 +51,30 @@ a{
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scroll;
-    a{
     color: $chat-side-text-color;
-      .group{
+    .group{
         margin-bottom: 40px;
-        &__group-name{
-          font-size: 15px;
-          margin-bottom: 5px;
+        a{
+          color: $chat-side-text-color;
+          .group__name{
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+          .group_message{
+            font-size: 11px;
+          }
+
         }
-        &__latest-message{
-          font-size: 11px;
-        }
-      }
-    }     
-  } 
-}
+       
+    }
+    
+    
+    
+      
+  }
+         
+} 
+// }
 
 .chat-main{
   width: calc(100vw - 300px);

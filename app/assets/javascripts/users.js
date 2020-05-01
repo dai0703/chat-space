@@ -32,19 +32,17 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
 
-    .done(function(users){
-      if  (input.length === 0){
-        $('#user-search-result').empty();
-      }
-      else if(input.length !== 0){
-        $('#user-search-result').empty();
-        users.forEach(function(user){
-          appendUser(user)
+    .done(function(users) {
+      $("#user-search-result").empty();
+
+      if (users.length !== 0) {
+        users.forEach(function(user) {
+          addUser(user);
         });
-      }
-      else{
-        $('#user-search-result').empty();   
-        appendErrMsg('一致するユーザが見つかりません');
+      } else if (input.length == 0) {
+        return false;
+      } else {
+        addNoUser();
       }
     })
     .fail(function(){
